@@ -1,8 +1,8 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormater\test\unit\Container;
+namespace Grummfy\Api\ResponseFormatter\test\unit\Container;
 
-use Grummfy\Api\ResponseFormater\Container\LinkCollection as TestedClass;
+use Grummfy\Api\ResponseFormatter\Container\LinkCollection as TestedClass;
 
 class LinkCollection extends \atoum\test
 {
@@ -10,7 +10,7 @@ class LinkCollection extends \atoum\test
 	{
 		$testedClass = new TestedClass();
 
-		$link = new \mock\Grummfy\Api\ResponseFormater\Container\LinkInterface;
+		$link = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
 		$this->calling($link)->getRelation = function() {return 'abc';};
 
 		$this->assert('Link exist')
@@ -38,7 +38,7 @@ class LinkCollection extends \atoum\test
 	{
 		$testedClass = new TestedClass();
 
-		$link = new \mock\Grummfy\Api\ResponseFormater\Container\LinkInterface;
+		$link = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
 		$this->calling($link)->getRelation = function() {return 'abc';};
 
 		$testedClass->addLink($link);
@@ -64,8 +64,8 @@ class LinkCollection extends \atoum\test
 			->isInstanceOf('\Traversable')
 			->isInstanceOf('\IteratorAggregate');
 
-		$link1 = new \mock\Grummfy\Api\ResponseFormater\Container\LinkInterface;
-		$link2 = new \mock\Grummfy\Api\ResponseFormater\Container\LinkInterface;
+		$link1 = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
+		$link2 = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
 		$testedClass->addLink($link1);
 		$testedClass->addLink($link2);
 
@@ -87,7 +87,7 @@ class LinkCollection extends \atoum\test
 			->isEqualTo(count($testedClass))
 			->isZero();
 
-		$testedClass->addLink(new \mock\Grummfy\Api\ResponseFormater\Container\LinkInterface);
+		$testedClass->addLink(new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface);
 		$this->assert('Check links in collection')
 			->integer($testedClass->count())
 			->isEqualTo(count($testedClass))

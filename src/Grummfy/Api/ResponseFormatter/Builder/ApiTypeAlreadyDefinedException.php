@@ -1,6 +1,6 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormater\Builder;
+namespace Grummfy\Api\ResponseFormatter\Builder;
 
 class ApiTypeAlreadyDefinedException extends \UnexpectedValueException
 {

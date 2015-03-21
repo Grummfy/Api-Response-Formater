@@ -1,6 +1,6 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormater\Format;
+namespace Grummfy\Api\ResponseFormatter\Format;
 
 interface FormatInterface
 {

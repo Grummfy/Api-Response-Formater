@@ -1,24 +1,26 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormater\Builder;
+namespace Grummfy\Api\ResponseFormatter\Builder;
 
-use Grummfy\Api\ResponseFormater\Container\ItemCollectionInterface;
-use Grummfy\Api\ResponseFormater\Container\ItemInterface;
-use Grummfy\Api\ResponseFormater\Container\LinkInterface;
-use Grummfy\Api\ResponseFormater\Format\FormatInterface;
-use Grummfy\Api\ResponseFormater\Render\WrapperInterface;
+use Grummfy\Api\ResponseFormatter\Container\ItemCollectionInterface;
+use Grummfy\Api\ResponseFormatter\Container\ItemInterface;
+use Grummfy\Api\ResponseFormatter\Container\LinkInterface;
+use Grummfy\Api\ResponseFormatter\Format\FormatInterface;
+use Grummfy\Api\ResponseFormatter\Render\WrapperInterface;
 
 interface BuilderInterface
 {
 	/**
 	 * @param LinkInterface $link
 	 * @return $this
+	 * @throws UnsupportedException
 	 */
 	public function addLink(LinkInterface $link);
 
 	/**
 	 * @param WrapperInterface $wrapper
 	 * @return $this
+	 * @throws UnsupportedException
 	 */
 	public function addWrapper(WrapperInterface $wrapper);
 
@@ -27,6 +29,7 @@ interface BuilderInterface
 	 * @param ItemInterface $item
 	 * @return $this
 	 * @throws ApiTypeAlreadyDefinedException
+	 * @throws UnsupportedException
 	 */
 	public function setItem(ItemInterface $item);
 
@@ -35,12 +38,13 @@ interface BuilderInterface
 	 * @param ItemCollectionInterface $collection
 	 * @return $this
 	 * @throws ApiTypeAlreadyDefinedException
+	 * @throws UnsupportedException
 	 */
 	public function setItemCollection(ItemCollectionInterface $collection);
 
 	/**
 	 * @param FormatInterface $format
-	 * @return mixed
+	 * @return $this
 	 */
 	public function setFormat(FormatInterface $format);
 }

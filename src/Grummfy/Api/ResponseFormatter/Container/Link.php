@@ -1,6 +1,6 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormater\Container;
+namespace Grummfy\Api\ResponseFormatter\Container;
 
 class Link implements LinkInterface
 {

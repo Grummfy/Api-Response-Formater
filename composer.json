@@ -1,6 +1,6 @@
 {
-    "name" : "Grummfy/ApiResponseFormater",
-    "description": "Api Response Formater",
+    "name" : "Grummfy/ApiResponseFormatter",
+    "description": "Api Response Formatter",
     "type" : "library",
     "keywords" : ["library", "mapping", "api", "response"],
     "license" : "TO defined",

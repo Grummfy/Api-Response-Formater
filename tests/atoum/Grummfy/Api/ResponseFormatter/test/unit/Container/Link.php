@@ -1,8 +1,8 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormater\test\unit\Container;
+namespace Grummfy\Api\ResponseFormatter\test\unit\Container;
 
-use Grummfy\Api\ResponseFormater\Container\Link as TestedClass;
+use Grummfy\Api\ResponseFormatter\Container\Link as TestedClass;
 
 class Link extends \atoum\test
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormater\Container;
+namespace Grummfy\Api\ResponseFormatter\Container;
 
 interface ExceptionInterface extends ErrorInterface
 {
