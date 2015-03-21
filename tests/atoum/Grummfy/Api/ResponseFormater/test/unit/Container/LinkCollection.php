@@ -24,6 +24,14 @@ class LinkCollection extends \atoum\test
 			->then()
 				->boolean($testedClass->hasRelation($link->getRelation()))
 				->isTrue();
+
+		$this->assert('Link not-exist')
+			->if()
+				->variable($testedClass->getLink('test'))
+				->isNull()
+			->then()
+				->boolean($testedClass->hasRelation('test'))
+				->isFalse();
 	}
 
 	public function testRemoveLink()
