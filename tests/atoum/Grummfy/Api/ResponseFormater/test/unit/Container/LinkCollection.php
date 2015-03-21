@@ -20,7 +20,10 @@ class LinkCollection extends \atoum\test
 				->isEqualTo($testedClass)
 			->then()
 				->object($testedClass->getLink($link->getRelation()))
-				->isIdenticalTo($link);
+				->isIdenticalTo($link)
+			->andThen()
+				->boolean($testedClass->hasRelation($link->getRelication()))
+				->isTrue();
 	}
 
 	public function testRemoveLink()
