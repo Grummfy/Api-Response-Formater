@@ -2,6 +2,6 @@
 
 namespace Grummfy\Api\ResponseFormater\Container;
 
-interface PaginationInterface
+interface ItemCollectionInterface
 {
 }
