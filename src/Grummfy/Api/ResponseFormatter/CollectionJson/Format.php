@@ -43,6 +43,6 @@ class Format implements FormatInterface
 
 	public function supportException()
 	{
-		return false;
+		return true;
 	}
 }

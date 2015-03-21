@@ -52,6 +52,11 @@ class LinkCollection implements LinkCollectionInterface
 		return $this->_links[ $relation ];
 	}
 
+	public function getLinks()
+	{
+		return $this->_links;
+	}
+
 	/**
 	 * It this relation exist?
 	 *

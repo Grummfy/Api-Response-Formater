@@ -20,6 +20,11 @@ interface LinkCollectionInterface extends \Countable, \IteratorAggregate
 	public function getLink($relation);
 
 	/**
+	 * @return array<LinkInterface>
+	 */
+	public function getLinks();
+
+	/**
 	 * It this relation exist?
 	 *
 	 * @param string $relation

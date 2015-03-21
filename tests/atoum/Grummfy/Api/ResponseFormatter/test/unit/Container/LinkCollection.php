@@ -65,13 +65,54 @@ class LinkCollection extends \atoum\test
 			->isInstanceOf('\IteratorAggregate');
 
 		$link1 = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
+		$this->calling($link1)->getRelation = function() {return 'abc';};
+
 		$link2 = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
+		$this->calling($link2)->getRelation = function() {return 'def';};
+
 		$testedClass->addLink($link1);
 		$testedClass->addLink($link2);
 
-		$this->assert()
+		$this->assert('Is traversable')
 			->object($testedClass->getIterator())
-			->isInstanceOf('\Traversable');
+			->isInstanceOf('\Traversable')
+			->hasSize(2);
+	}
+
+	public function testLinkAddingAndGetAll()
+	{
+		$testedClass = new TestedClass();
+
+		$link1 = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
+		$this->calling($link1)->getRelation = function() {return 'abc';};
+
+		$link2 = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
+		$this->calling($link2)->getRelation = function() {return 'def';};
+		$this->calling($link2)->getRelation = function() {return 'def';};
+
+		$testedClass->addLink($link1);
+		$testedClass->addLink($link2);
+
+		$this->assert('Links is gettable')
+			->array($testedClass->getLinks())
+			->hasSize(2)
+			->object[ $link1->getRelation() ]->isIdenticalTo($link1)
+			->object[ $link2->getRelation() ]->isIdenticalTo($link2);
+
+		$link3 = new \mock\Grummfy\Api\ResponseFormatter\Container\LinkInterface;
+		$this->calling($link3)->getRelation = function() {return 'def';};
+		$testedClass->addLink($link3);
+
+		$this->assert('Links is gettable but if we add same relation it will be override')
+			->if()
+				->array($testedClass->getLinks())
+				->hasSize(2)
+				->containsValues([$link1, $link3])
+			->then()
+				->array($testedClass->getLinks())
+				->object[ $link1->getRelation() ]->isIdenticalTo($link1)
+				->object[ $link2->getRelation() ]->isNotIdenticalTo($link2) // $link2 ahve the same relation than $link3 but it's not the same instance
+				->object[ $link3->getRelation() ]->isIdenticalTo($link3);
 	}
 
 	public function testCountable()

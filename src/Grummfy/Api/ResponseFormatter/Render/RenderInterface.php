@@ -2,13 +2,10 @@
 
 namespace Grummfy\Api\ResponseFormatter\Render;
 
-interface RenderInterface
-{
-	/**
-	 * @return array
-	 */
-	public function toArray();
+use Grummfy\Api\ResponseFormatter\ToArrayInterface;
 
+interface RenderInterface extends ToArrayInterface
+{
 	/**
 	 * @return string
 	 */

@@ -2,6 +2,7 @@
 
 namespace Grummfy\Api\ResponseFormatter\Builder;
 
+use Grummfy\Api\ResponseFormatter\Container\ErrorInterface;
 use Grummfy\Api\ResponseFormatter\Container\ItemCollectionInterface;
 use Grummfy\Api\ResponseFormatter\Container\ItemInterface;
 use Grummfy\Api\ResponseFormatter\Container\LinkInterface;
@@ -47,4 +48,15 @@ interface BuilderInterface
 	 * @return $this
 	 */
 	public function setFormat(FormatInterface $format);
+
+	/**
+	 * @param ErrorInterface $error
+	 * @return $this
+	 */
+	public function setError(ErrorInterface $error);
+
+	/**
+	 * @return bool
+	 */
+	public function isError();
 }
