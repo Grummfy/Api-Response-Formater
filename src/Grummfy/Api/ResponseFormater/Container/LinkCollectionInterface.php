@@ -2,7 +2,7 @@
 
 namespace Grummfy\Api\ResponseFormater\Container;
 
-interface LinkCollectionInterface extends Countable, IteratorAggregate
+interface LinkCollectionInterface extends \Countable, \IteratorAggregate
 {
 	/**
 	 * Add a new link

@@ -6,11 +6,10 @@
 	<target name="qa-tools" depends="atoum" />
 
 	<target name="atoum" description="Unit test">
-		<exec executable="atoum" logoutput="true" checkreturn="true" level="debug">
-			<arg value=" -bf externals/tools/atoum/bootstrap.atoum.php"/>
-			<arg value=" -c externals/tools/atoum/atoum.php"/>
-			<arg value=" -d tests/atoum/"/>
-			<arg path="."/>
+		<exec executable="atoum" logoutput="true" checkreturn="true" level="debug" >
+			<arg line="-bf externals/tools/atoum/bootstrap.atoum.php"/>
+			<arg line="-c  externals/tools/atoum/atoum.php"/>
+			<arg line="-d  tests/atoum/"/>
 		</exec>
 	</target>
 </project>
