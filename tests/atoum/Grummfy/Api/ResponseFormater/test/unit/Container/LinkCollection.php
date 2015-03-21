@@ -13,7 +13,7 @@ class LinkCollection extends \atoum\test
 		$link = new \mock\Grummfy\Api\ResponseFormater\Container\LinkInterface;
 		$this->calling($link)->getRelation = function() {return 'abc';};
 
-		$this->assert('Add Link')
+		$this->assert('Link exist')
 			->if()
 				->object($testedClass->addLink($link))
 				->hasSize(1)
@@ -21,8 +21,8 @@ class LinkCollection extends \atoum\test
 			->then()
 				->object($testedClass->getLink($link->getRelation()))
 				->isIdenticalTo($link)
-			->andThen()
-				->boolean($testedClass->hasRelation($link->getRelication()))
+			->then()
+				->boolean($testedClass->hasRelation($link->getRelation()))
 				->isTrue();
 	}
 
