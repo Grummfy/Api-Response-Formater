@@ -11,11 +11,16 @@ class LinkCollection extends \atoum\test
 		$testedClass = new TestedClass();
 
 		$link = new \mock\Grummfy\Api\ResponseFormater\Container\LinkInterface;
+		$this->calling($link)->getRelation = function() {return 'abc';};
 
 		$this->assert('Add Link')
-			->object($testedClass->addLink($link))
-			->hasSize(1)
-			->isEqualTo($testedClass);
+			->if()
+				->object($testedClass->addLink($link))
+				->hasSize(1)
+				->isEqualTo($testedClass)
+			->then()
+				->object($testedClass->getLink($link->getRelation()))
+				->isIdenticalTo($link);
 	}
 
 	public function testRemoveLink()
