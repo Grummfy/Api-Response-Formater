@@ -8,6 +8,13 @@ class Render implements RenderInterface
 {
 	public function render()
 	{
-		// ...
+		return json_encode($this->toArray());
+	}
+
+	public function toArray()
+	{
+		return [
+
+		];
 	}
 }
