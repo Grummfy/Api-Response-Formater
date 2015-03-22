@@ -3,7 +3,7 @@
 namespace Grummfy\Api\ResponseFormatter\CollectionJson;
 
 use Grummfy\Api\ResponseFormatter\Builder\AbstractBuilder;
-use Grummfy\Api\ResponseFormatter\Render\Wrapper\RenderInterface;
+use Grummfy\Api\ResponseFormatter\Render\RenderInterface;
 
 class Builder extends AbstractBuilder
 {
@@ -26,7 +26,7 @@ class Builder extends AbstractBuilder
 		{
 			case self::STATE_COLLECTION:
 				// TODO manage pagination
-				$data['items'] = $render->renderLinkCollectionToArray($this->_getItemCollection());
+				$data['items'] = $render->renderItemsCollectionToArray($this->_getItemCollection());
 				break;
 			case self::STATE_ITEM:
 				$data['items'] = $render->renderItemToArray($this->_getItem());
@@ -35,7 +35,7 @@ class Builder extends AbstractBuilder
 				$data['error'] = $render->renderErrorToArray($this->_getError());
 				break;
 			default:
-				// TODO maange this case
+				// TODO manage this case
 				throw new \Exception('...');
 		}
 

@@ -2,6 +2,8 @@
 
 namespace Grummfy\Api\ResponseFormatter\Render\Wrapper;
 
+use Grummfy\Api\ResponseFormatter\Render\RenderInterface;
+
 class NullWrapper implements WrapperInterface
 {
 	public function addWrapper(WrapperInterface $wrapper)

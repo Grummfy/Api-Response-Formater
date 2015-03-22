@@ -7,7 +7,7 @@ use Grummfy\Api\ResponseFormatter\Container\ItemCollectionInterface;
 use Grummfy\Api\ResponseFormatter\Container\ItemInterface;
 use Grummfy\Api\ResponseFormatter\Container\LinkCollectionInterface;
 use Grummfy\Api\ResponseFormatter\Container\LinkInterface;
-use Grummfy\Api\ResponseFormatter\Render\Wrapper\AbstractJsonRender;
+use Grummfy\Api\ResponseFormatter\Render\AbstractJsonRender;
 
 class Render extends AbstractJsonRender
 {

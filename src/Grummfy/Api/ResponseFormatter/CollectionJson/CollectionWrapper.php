@@ -3,8 +3,7 @@
 namespace Grummfy\Api\ResponseFormatter\CollectionJson;
 
 use Grummfy\Api\ResponseFormatter\Render\Wrapper\NullWrapper;
-use Grummfy\Api\ResponseFormatter\Render\Wrapper\RenderInterface;
-use Grummfy\Api\ResponseFormatter\Render\Wrapper\WrapperInterface;
+use Grummfy\Api\ResponseFormatter\Render\RenderInterface;
 
 class CollectionWrapper extends NullWrapper
 {

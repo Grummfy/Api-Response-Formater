@@ -93,7 +93,7 @@ abstract class AbstractBuilder implements BuilderInterface
 
 	public function setItemCollection(ItemCollectionInterface $collection)
 	{
-		if (!$this->_format->supportLinks())
+		if (!$this->_format->supportCollection())
 		{
 			throw new UnsupportedException('Format ' . $this->_format->getName() . ' doesn\'t support collection of items', 3);
 		}

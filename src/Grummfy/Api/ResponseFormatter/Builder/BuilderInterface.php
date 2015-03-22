@@ -7,7 +7,7 @@ use Grummfy\Api\ResponseFormatter\Container\ItemCollectionInterface;
 use Grummfy\Api\ResponseFormatter\Container\ItemInterface;
 use Grummfy\Api\ResponseFormatter\Container\LinkInterface;
 use Grummfy\Api\ResponseFormatter\Format\FormatInterface;
-use Grummfy\Api\ResponseFormatter\Render\Wrapper\RenderInterface;
+use Grummfy\Api\ResponseFormatter\Render\RenderInterface;
 use Grummfy\Api\ResponseFormatter\Render\Wrapper\WrapperInterface;
 
 interface BuilderInterface

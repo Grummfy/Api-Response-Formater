@@ -1,6 +1,7 @@
 <?php
 
 namespace Grummfy\Api\ResponseFormatter\Render\Wrapper;
+use Grummfy\Api\ResponseFormatter\Render\RenderInterface;
 
 /**
  * Add some data, wrap them, change them..

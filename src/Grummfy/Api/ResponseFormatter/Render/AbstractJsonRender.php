@@ -1,6 +1,6 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormatter\Render\Wrapper;
+namespace Grummfy\Api\ResponseFormatter\Render;
 
 abstract class AbstractJsonRender extends AbstractRender
 {

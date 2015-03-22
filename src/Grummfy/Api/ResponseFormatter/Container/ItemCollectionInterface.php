@@ -2,7 +2,7 @@
 
 namespace Grummfy\Api\ResponseFormatter\Container;
 
-interface ItemCollectionInterface
+interface ItemCollectionInterface extends WithIdentityLinkInterface, \Countable, \IteratorAggregate
 {
 	/**
 	 * @param ItemInterface $item

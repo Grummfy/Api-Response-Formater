@@ -2,7 +2,6 @@
 
 namespace Grummfy\Api\ResponseFormatter\CollectionJson;
 
-use Grummfy\Api\ResponseFormatter\Builder\AbstractBuilder;
 use Grummfy\Api\ResponseFormatter\Format\FormatInterface;
 use Grummfy\Api\ResponseFormatter\Render\Wrapper\WrapperInterface;
 

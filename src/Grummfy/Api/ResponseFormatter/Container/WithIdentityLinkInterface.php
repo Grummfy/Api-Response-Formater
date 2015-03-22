@@ -10,5 +10,9 @@ interface WithIdentityLinkInterface
 	 */
 	public function getSelfLink();
 
+	/**
+	 * @param LinkInterface $link
+	 * @return $this
+	 */
 	public function setSelfLink(LinkInterface $link);
 }

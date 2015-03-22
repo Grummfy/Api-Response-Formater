@@ -1,6 +1,6 @@
 <?php
 
-namespace Grummfy\Api\ResponseFormatter\Render\Wrapper;
+namespace Grummfy\Api\ResponseFormatter\Render;
 
 use Grummfy\Api\ResponseFormatter\Builder\BuilderInterface;
 

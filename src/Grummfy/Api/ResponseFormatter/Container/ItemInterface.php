@@ -2,13 +2,8 @@
 
 namespace Grummfy\Api\ResponseFormatter\Container;
 
-interface ItemInterface extends WithIdentityLinkInterface
+interface ItemInterface extends WithIdentityLinkInterface, WithLinkCollectionInterface
 {
-	/**
-	 * @return LinkCollectionInterface
-	 */
-	public function getLinks();
-
 	/**
 	 * @return array
 	 */

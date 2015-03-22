@@ -76,4 +76,25 @@ class PaginateItemCollection extends ItemCollection implements PaginateItemColle
 	{
 		return $this->_total;
 	}
+
+	public function getRelationLinks($uriBuilderCallback)
+	{
+		$lastPage = intval(ceil($this->getTotalCount() / $this->getLimit()));
+		$links = [
+			Link::create('first', $uriBuilderCallback(1)),
+			Link::create('last', $uriBuilderCallback($lastPage))
+		];
+
+		if ($this->getPage() > 1)
+		{
+			$links[] = Link::create('previous', $uriBuilderCallback($this->getPage() - 1));
+		}
+
+		if ($this->getPage() < $lastPage)
+		{
+			$links[] = Link::create('next', $uriBuilderCallback($lastPage));
+		}
+
+		return $links;
+	}
 }
