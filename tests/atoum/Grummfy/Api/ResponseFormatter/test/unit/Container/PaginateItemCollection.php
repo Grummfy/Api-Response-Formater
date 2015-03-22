@@ -61,4 +61,14 @@ class PaginateItemCollection extends \atoum\test
 			->integer($testedClass->getOffset())
 				->isEqualTo($offset);
 	}
+
+	public function testTotal()
+	{
+		$testedClass = new TestedClass();
+		$this->assert('Total')
+			->object($testedClass->setTotal(42))
+				->isIdenticalTo($testedClass)
+			->integer($testedClass->getTotalCount())
+				->isEqualTo(42);
+	}
 }
