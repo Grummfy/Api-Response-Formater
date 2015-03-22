@@ -1,2 +1,3 @@
 * adding hal, ... format
 * adding content dispatch following a mime type/constant
+* Symfony 2 bundle : service + reponse + ...
