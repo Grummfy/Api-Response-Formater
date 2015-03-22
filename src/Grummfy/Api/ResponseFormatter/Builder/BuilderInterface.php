@@ -7,7 +7,8 @@ use Grummfy\Api\ResponseFormatter\Container\ItemCollectionInterface;
 use Grummfy\Api\ResponseFormatter\Container\ItemInterface;
 use Grummfy\Api\ResponseFormatter\Container\LinkInterface;
 use Grummfy\Api\ResponseFormatter\Format\FormatInterface;
-use Grummfy\Api\ResponseFormatter\Render\WrapperInterface;
+use Grummfy\Api\ResponseFormatter\Render\Wrapper\RenderInterface;
+use Grummfy\Api\ResponseFormatter\Render\Wrapper\WrapperInterface;
 
 interface BuilderInterface
 {
@@ -56,7 +57,18 @@ interface BuilderInterface
 	public function setError(ErrorInterface $error);
 
 	/**
+	 * @return ErrorInterface
+	 */
+	public function getError();
+
+	/**
 	 * @return bool
 	 */
 	public function isError();
+
+	/**
+	 * @param RenderInterface $render
+	 * @return array
+	 */
+	public function toArray(RenderInterface $render);
 }

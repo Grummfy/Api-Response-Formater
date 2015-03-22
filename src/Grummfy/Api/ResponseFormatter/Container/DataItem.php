@@ -2,7 +2,7 @@
 
 namespace Grummfy\Api\ResponseFormatter\Container;
 
-class DataItem implements ItemInterface
+class DataItem extends AbstractItem
 {
 	/**
 	 * @var array
@@ -11,6 +11,7 @@ class DataItem implements ItemInterface
 
 	public function __construct(array $data = null)
 	{
+		parent::__construct();
 		$this->_data = (is_null($data)) ? array() : $data;
 	}
 

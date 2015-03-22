@@ -2,9 +2,15 @@
 
 namespace Grummfy\Api\ResponseFormatter\Container;
 
-use Grummfy\Api\ResponseFormatter\ToArrayInterface;
-
-interface ItemInterface extends ToArrayInterface
+interface ItemInterface extends WithIdentityLinkInterface
 {
+	/**
+	 * @return LinkCollectionInterface
+	 */
+	public function getLinks();
 
+	/**
+	 * @return array
+	 */
+	public function toArray();
 }
