@@ -27,6 +27,11 @@ class Builder extends AbstractBuilder
 			case self::STATE_COLLECTION:
 				// TODO manage pagination
 				$data['items'] = $render->renderItemsCollectionToArray($this->_getItemCollection());
+				$links = $this->_getItemCollection()->getLinks();
+				if (count($links) > 0)
+				{
+					$data['links'] = $render->renderLinkCollectionToArray($links);
+				}
 				break;
 			case self::STATE_ITEM:
 				$data['items'] = $render->renderItemToArray($this->_getItem());

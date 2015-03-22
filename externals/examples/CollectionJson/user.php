@@ -45,5 +45,5 @@ $builder->setVersion('1.0');
 $builder->setItem($userItem);
 
 // render the result
-//header('Content-Type: ' . $format->getMimeType());
+header('Content-Type: ' . $format->getMimeType());
 echo $render->render();

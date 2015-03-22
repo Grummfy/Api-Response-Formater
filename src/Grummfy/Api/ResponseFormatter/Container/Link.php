@@ -14,7 +14,7 @@ class Link implements LinkInterface
 	 */
 	protected $_relation;
 
-	public static function create($uri, $relation)
+	public static function create($relation, $uri)
 	{
 		$link = new self();
 		$link

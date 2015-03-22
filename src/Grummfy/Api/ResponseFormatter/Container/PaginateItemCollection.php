@@ -24,6 +24,11 @@ class PaginateItemCollection extends ItemCollection implements PaginateItemColle
 	 */
 	protected $_total = 0;
 
+	/**
+	 * @var callable
+	 */
+	protected $_uriBuilderCallback;
+
 	public function setPageAndLimit($page, $limit)
 	{
 		$this->_page = $page;
@@ -48,53 +53,60 @@ class PaginateItemCollection extends ItemCollection implements PaginateItemColle
 		return $this;
 	}
 
+	public function setCallbackUriPaginationBuilder($uriBuilderCallback)
+	{
+		$this->_uriBuilderCallback = $uriBuilderCallback;
+		return $this;
+	}
+
 	public function getPage()
 	{
 		return $this->_page;
 	}
 
-	/**
-	 * @return int
-	 */
 	public function getOffset()
 	{
 		return $this->_offset;
 	}
 
-	/**
-	 * @return int
-	 */
 	public function getLimit()
 	{
 		return $this->_limit;
 	}
 
-	/**
-	 * @return int
-	 */
 	public function getTotalCount()
 	{
 		return $this->_total;
 	}
 
-	public function getRelationLinks($uriBuilderCallback)
+	public function getLinks()
 	{
+		$this->_pushRelationLinks();
+		return parent::getLinks();
+	}
+
+	/**
+	 * Add the link for the pagination relation!
+	 */
+	protected function _pushRelationLinks()
+	{
+		// /!\ avoid infinite loop
+		$links =  parent::getLinks();
+
+		$ub = $this->_uriBuilderCallback;
+
 		$lastPage = intval(ceil($this->getTotalCount() / $this->getLimit()));
-		$links = [
-			Link::create('first', $uriBuilderCallback(1)),
-			Link::create('last', $uriBuilderCallback($lastPage))
-		];
+		$links->addLink(Link::create('first', $ub(1)));
+		$links->addLink(Link::create('last', $ub($lastPage)));
 
 		if ($this->getPage() > 1)
 		{
-			$links[] = Link::create('previous', $uriBuilderCallback($this->getPage() - 1));
+			$links->addLink(Link::create('previous', $ub($this->getPage() - 1)));
 		}
 
 		if ($this->getPage() < $lastPage)
 		{
-			$links[] = Link::create('next', $uriBuilderCallback($lastPage));
+			$links->addLink(Link::create('next', $ub($lastPage)));
 		}
-
-		return $links;
 	}
 }

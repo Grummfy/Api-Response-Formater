@@ -4,15 +4,18 @@ namespace Grummfy\Api\ResponseFormatter\Container;
 
 class ItemCollection implements ItemCollectionInterface
 {
+	use WithIdentityLinkTrait;
+	use WithLinkCollectionTrait;
+
 	/**
 	 * @var array<ItemInterface>
 	 */
 	protected $_items = array();
 
-	/**
-	 * @var LinkInterface
-	 */
-	protected $_selfLink;
+	public function __construct()
+	{
+		$this->_links = new LinkCollection();
+	}
 
 	/**
 	 * @return int
@@ -39,16 +42,5 @@ class ItemCollection implements ItemCollectionInterface
 	public function getItems()
 	{
 		return $this->_items;
-	}
-
-	public function getSelfLink()
-	{
-		return $this->_selfLink;
-	}
-
-	public function setSelfLink(LinkInterface $link)
-	{
-		$this->_selfLink = $link;
-		$this;
 	}
 }

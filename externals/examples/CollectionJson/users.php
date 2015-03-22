@@ -27,10 +27,15 @@ if (!$paginate)
 }
 else
 {
+	$page = intval($_GET['page']);
 	$limit = 10;
 	$itemCollection = new \Grummfy\Api\ResponseFormatter\Container\PaginateItemCollection();
-	$itemCollection->setPageAndLimit(1, $limit);
+	$itemCollection->setPageAndLimit($page, $limit);
 	$itemCollection->setTotal($i);
+	$itemCollection->setCallbackUriPaginationBuilder(function ($page) use ($limit)
+	{
+		return $_SERVER['REQUEST_URI'] . '?page=' . $page . '&limit=' . $limit;
+	});
 	$i = $limit;
 }
 
@@ -65,21 +70,10 @@ $collection->setSelfLink($itemCollection->getSelfLink());
 $builder->setRepresentation($collection);
 $builder->setVersion('1.0');
 
-if ($paginate)
-{
-	// adding pagination links relation
-	$links = $itemCollection->getRelationLinks(function ($page) use ($limit)
-	{
-		return $_SERVER['REQUEST_URI'] . '?page=' . $page . '&limit=' . $limit;
-	});
-
-	$builder->setItemCollection(); // $links
-}
-
 // now that we are ready for the specification of the collection+json format
 // we add the usefull stuff
 $builder->setItemCollection($itemCollection);
 
 // render the result
-//header('Content-Type: ' . $format->getMimeType());
+header('Content-Type: ' . $format->getMimeType());
 echo $render->render();

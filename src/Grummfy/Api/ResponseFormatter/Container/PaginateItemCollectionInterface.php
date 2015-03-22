@@ -25,10 +25,9 @@ interface PaginateItemCollectionInterface extends ItemCollectionInterface
 	public function getTotalCount();
 
 	/**
-	 * Get the link for the pagination
 	 * @param callable $uriBuilderCallback a closure that take as an argument the page number of the uri
 	 *          and return thr uri of the link
-	 * @return array of links for the pagination
+	 * @return $this
 	 */
-	public function getRelationLinks($uriBuilderCallback);
+	public function setCallbackUriPaginationBuilder($uriBuilderCallback);
 }
