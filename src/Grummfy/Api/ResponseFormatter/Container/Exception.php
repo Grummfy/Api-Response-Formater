@@ -13,6 +13,8 @@ class Exception extends Error implements ExceptionInterface
 			->setCode($exception->getCode())
 			->setMessage($exception->getMessage())
 			->setTitle('Exception');
+
+		return $this;
 	}
 
 	public function isException()

@@ -11,7 +11,7 @@ class DataItem implements ItemInterface
 
 	public function __construct(array $data = null)
 	{
-		$this->_data (is_null($data)) ? array() : $data;
+		$this->_data = (is_null($data)) ? array() : $data;
 	}
 
 	/**
