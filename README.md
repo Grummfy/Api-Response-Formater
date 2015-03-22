@@ -7,6 +7,8 @@ This project wants to help people generate output from api without the need to t
 Split between data and they representation. One side you have a set of container and the other side a builder, a format information and a renderer. 
 
 ## Collection+Json formatter
+[Collection+json format documentation](http://amundsen.com/media-types/collection/)
+
 ### Support
 * version : OK
 * data :
